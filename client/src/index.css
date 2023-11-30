@@ -1,0 +1,1200 @@
+/* Global Styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Variables */
+:root {
+    --yellow: rgb(255, 228, 75);
+    --wide: 'Montserrat', sans-serif;
+    --normal: 'Roboto', sans-serif;
+    --black: #151515;
+    --black-light: #454545;
+    --white: #fff;
+    --red: red;
+    --green: rgb(78, 134, 77);
+    --blue: rgb(0, 60, 255);
+    --single-shadow: 5px 5px 10px rgba(0, 0, 0, 0.19);
+    --double-shadow: 5px 5px 10px rgba(0, 0, 0, 0.19), -5px -5px 10px rgba(0, 0, 0, 0.19);
+    --transition-normal: 0.3s ease;
+}
+
+/* Whole App CSS */
+.app-parent {
+    max-width: 1300px;
+    display: flex;
+    margin: auto;
+    justify-content: center;
+    font-family: var(--normal);
+
+    .app {
+
+        width: 100%;
+    }
+
+    .shimmer-mobile {
+        display: none;
+    }
+
+    .app-container {
+        min-height: 60vh;
+        background: url('./assets//images/Blur.webp');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        padding: 2rem 0;
+    }
+
+    /* Common Classes */
+    .section-heading {
+        text-align: center;
+        font-size: 2rem;
+        font-family: var(--wide);
+        font-weight: 600;
+        text-decoration: underline;
+        text-decoration-color: var(--yellow);
+        text-decoration-thickness: 5px;
+    }
+
+    /* Home page */
+    .home-container {
+        display: flex;
+        padding: 1rem 4rem;
+        justify-content: space-between;
+        min-height: 80vh;
+        height: auto;
+
+
+        .home-left {
+            width: 45%;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            justify-content: center;
+
+            & h1 {
+                font-size: 2.5rem;
+                font-family: var(--wide);
+                font-weight: 600
+            }
+
+            & p {
+                color: var(--black-light);
+
+            }
+
+            .home-btn {
+                background-color: var(--yellow);
+                width: auto;
+                max-width: 75%;
+                border-radius: 40px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                color: var(--black);
+                text-decoration: none;
+                font-weight: 600;
+                padding: 12px;
+                transition: var(--transition-normal);
+            }
+
+            .home-btn:hover {
+                box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.29);
+            }
+
+            .stats {
+                display: flex;
+                padding: 1rem 0;
+                justify-content: flex-start;
+                gap: 5rem;
+                z-index: 1;
+
+                .stat {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    scale: 1.1;
+
+                    & h2 {
+                        text-decoration: underline;
+                        text-decoration-color: var(--yellow);
+                        text-decoration-thickness: 5px;
+                    }
+                }
+            }
+        }
+
+        .home-right {
+            width: 45%;
+
+            .home-img {
+                width: 100%;
+            }
+        }
+
+    }
+
+    /* Navbar */
+    .navbar-parent {
+        display: flex;
+        justify-content: space-between;
+        padding: 1rem 0;
+
+        .nav-left {
+            .logo-link {
+                display: flex;
+                gap: 10px;
+                align-items: center;
+                font-family: var(--wide);
+                color: var(--black);
+                text-decoration: none;
+
+                .logo-img {
+                    font-size: 2.25rem;
+                }
+
+                .logo-name {
+                    font-size: 1.75rem;
+                    display: flex;
+                    font-weight: 600;
+
+                    & p {
+                        color: var(--yellow);
+                        font-weight: 700;
+                    }
+                }
+            }
+        }
+
+        .nav-center {
+            width: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+
+            :hover {
+                text-decoration: underline;
+                text-decoration-color: var(--yellow);
+                text-decoration-thickness: 4px;
+            }
+
+            .navlink {
+                display: flex;
+                gap: 5px;
+                align-items: center;
+
+                .navlink-link {
+                    color: var(--black);
+                    text-decoration: none;
+                    font-size: 1.2rem;
+                    transition: var(--transition-normal);
+                }
+            }
+        }
+
+        .nav-right {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            z-index: 100;
+
+            .user-icon {
+                & i {
+                    background-color: var(--black);
+                    color: var(--white);
+                    width: 100%;
+                    font-size: 1.5rem;
+                    padding: 0.5rem;
+                    height: 100%;
+                    border-radius: 50%;
+                }
+            }
+
+            .login-btn {
+                background-color: var(--black);
+                padding: 8px 12px;
+                border-radius: 2px;
+                transition: var(--transition-normal);
+                cursor: pointer;
+
+                .navbar-login-link {
+                    text-decoration: none;
+                    color: var(--white);
+                }
+            }
+
+            .login-btn:hover {
+                background-color: var(--yellow);
+                color: var(--black-light);
+            }
+
+            .hamburger-icon {
+                display: none;
+            }
+        }
+    }
+
+    /* Footer */
+    .footer {
+        display: flex;
+        width: 100%;
+        position: relative;
+        background-color: var(--white);
+        padding: 2rem 0;
+
+        .footer-left {
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+
+            .footer-logo {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+
+                .footer-logo-img {
+                    font-size: 2.5rem;
+                }
+
+                .footer-logo-name {
+                    display: flex;
+                    font-size: 1.75rem;
+                    font-weight: 600;
+                    font-family: var(--wide);
+
+                    & p {
+                        color: var(--yellow);
+                        font-weight: 700;
+                    }
+                }
+            }
+
+            .footer-copyright {
+                color: var(--black-light);
+                font-size: 1rem;
+            }
+
+            .footer-socials {
+                display: flex;
+                gap: 1rem;
+
+                :hover {
+                    transform: translateY(-8px);
+                }
+
+                & a {
+                    padding: 0.5rem;
+                    font-size: 1.75rem;
+                    color: var(--black);
+                    transition: var(--transition-normal);
+                    border-radius: 40%;
+                    overflow: hidden;
+
+                    :hover {
+                        transform: translateY(-2px);
+                    }
+                }
+            }
+        }
+
+        .footer-right {
+            width: 50%;
+            display: flex;
+            justify-content: flex-end;
+            gap: 5rem;
+
+            & h1 {
+                font-size: 1.1rem;
+                font-family: var(--wide);
+            }
+
+            .quick-links {
+                display: flex;
+                flex-direction: column;
+                gap: 1rem;
+                transition: var(--transition-normal);
+
+                .footer-quicklink {
+                    color: var(--black-light);
+                    text-decoration: none;
+                    transition: var(--transition-normal);
+                }
+
+                :hover {
+                    color: var(--black);
+                    font-weight: 700;
+                }
+            }
+        }
+    }
+
+    /* Login Page */
+    .login-parent {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 2.5rem;
+
+        .login-form {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            padding: 2.5rem;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.19);
+            border-radius: 8px;
+            width: 50%;
+
+            & h1 {
+                display: flex;
+                gap: 10px;
+
+                & p {
+                    color: var(--yellow);
+                }
+            }
+
+            & input {
+                border-radius: 4px;
+                outline: none;
+                padding: 8px 12px;
+                font-size: 1rem;
+                font-weight: 500;
+            }
+
+            .login-input {
+                display: flex;
+                flex-direction: column;
+
+                & label {
+                    font-size: 1.5rem;
+                    font-family: var(--wide);
+                    font-weight: 600;
+                }
+            }
+
+            .login-btn {
+                background-color: var(--yellow);
+                padding: 8px 12px;
+                text-align: center;
+                font-weight: 400;
+                font-size: 1.2rem;
+                cursor: pointer;
+            }
+
+            .login-btn:hover {
+                font-weight: 600;
+            }
+
+            .login-newhere {
+                text-align: center;
+                font-size: 1rem;
+                color: var(--black-light);
+
+                .login-register-redirect {
+                    font-weight: 600;
+                    text-decoration: underline;
+                    color: var(--black);
+                }
+            }
+        }
+    }
+
+    /* Register Page */
+    .register-parent {
+        display: flex;
+        justify-content: space-between;
+        padding: 2rem;
+
+        .register-left {
+            width: 50%;
+
+            & img {
+                width: 100%;
+            }
+        }
+
+        .register-right {
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 1.75rem;
+            padding: 2rem 4rem;
+
+            .register-labels {
+                display: flex;
+                justify-content: flex-start;
+                gap: 1.75rem;
+                align-items: center;
+            }
+
+            .image-input {
+                opacity: 1;
+                background-color: red;
+                display: none;
+            }
+
+            .role-label {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 10px;
+                color: var(--black);
+                font-weight: 600;
+                font-size: 16px;
+
+                & select {
+                    color: var(--black-light);
+                    font-weight: 500;
+                    font-size: 16px;
+                    padding: 8px 16px;
+                    outline: none;
+                }
+            }
+
+            & h1 {
+                display: flex;
+                gap: 10px;
+                font-family: var(--wide);
+                font-size: 1.75rem;
+
+                & p {
+                    color: var(--yellow);
+                }
+            }
+
+            & input {
+                outline: invert;
+                padding: 8px 12px;
+                font-size: 1rem;
+                font-weight: 500;
+            }
+
+            .register-btn {
+                background-color: var(--yellow);
+                padding: 8px 12px;
+                text-align: center;
+                font-weight: 400;
+                font-size: 1.2rem;
+                cursor: pointer;
+
+            }
+
+            .register-btn:hover {
+                font-weight: 600;
+            }
+
+            .register-olduser {
+                text-align: center;
+                font-size: 1rem;
+                color: var(--black-light);
+
+                .register-login-redirect {
+                    font-weight: 600;
+                    text-decoration: underline;
+                    color: var(--black);
+                }
+            }
+
+
+        }
+    }
+
+    /* About Page */
+    .about-parent {
+        padding: 4rem 0;
+
+        .about-container {
+            text-align: start;
+            padding: 4rem;
+
+            & h1 {
+                padding-bottom: 0.75rem;
+                text-decoration: underline;
+                text-decoration-color: var(--yellow);
+                text-decoration-thickness: 5px;
+            }
+
+            & p {
+                padding-bottom: 2rem;
+            }
+        }
+    }
+
+    /* Contact Page */
+    .contact-container {
+        padding: 5rem 0;
+
+        .contact-parent {
+            padding: 5rem;
+        }
+
+        .contact-form {
+            height: 250px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+
+            .form-left {
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+
+                & input {
+                    width: 300px;
+                    font-size: 16px;
+                    padding: 20px;
+                }
+            }
+
+            .form-right {
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+
+                & textarea {
+                    width: 300px;
+                    height: 70%;
+                    padding: 20px;
+                    font-size: 16px;
+                    font-family: var(--normal);
+                }
+
+                .form-btn {
+                    padding: 10px 20px;
+                    font-size: 20px;
+                    background-color: var(--yellow);
+                    color: var(--white);
+                    border: 2px solid var(--white);
+                    border-radius: 8px;
+                    font-weight: bold;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+
+    /* Doctor Card */
+    .doctors-container {
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 5rem 1rem;
+    }
+
+    .doctor-search-container {
+        width: 100%;
+        padding: 3rem 2rem 0rem 2rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+
+        & i {
+            font-size: 1.25rem;
+            color: var(--yellow);
+            color: var(--white);
+            padding: 8px;
+            border-radius: 50%;
+            background-color: var(--yellow);
+        }
+
+        & input {
+            font-size: 1.15rem;
+            border-radius: 4px;
+            border: none;
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;            outline: none;
+            padding: 8px;
+            width: 50%;
+        }
+    }
+
+    .doc-card {
+        padding: 10px 10px 20px 10px;
+        border-radius: 4px;
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+        width: 23%;
+        display: flex;
+        flex-direction: column;
+        transition: var(--transition-normal);
+        gap: 1.25rem;
+        border-bottom: 1px solid var(--yellow);
+
+        & img {
+            width: 100%;
+            border-radius: 12px;
+            height: 270px;
+            object-fit: cover;
+            object-position: top;
+        }
+
+        .name-title {
+            color: var(--black-light);
+            font-size: 1.1rem;
+            font-family: var(--wide);
+        }
+
+        & h1 {
+            font-size: 1.25rem;
+            color: var(--black);
+        }
+
+        .stats {
+            display: flex;
+            justify-content: space-around;
+
+            .patients {
+                width: 50%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+                .patient-logo {
+                    color: var(--blue);
+                    font-size: 1.25rem;
+
+                }
+            }
+
+            .rating {
+                width: 50%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+                .rating-logo {
+                    color: var(--yellow);
+                    font-size: 1.25rem;
+                }
+            }
+        }
+
+        .location {
+            display: flex;
+            justify-content: space-around;
+
+            .hospital {
+                display: flex;
+                width: 50%;
+                flex-direction: column;
+                align-items: center;
+
+                .icon {
+                    color: var(--green);
+                    font-size: 1.25rem;
+
+                }
+            }
+
+            .city {
+                display: flex;
+                width: 50%;
+                flex-direction: column;
+                align-items: center;
+
+                .icon {
+                    color: var(--red);
+                    font-size: 1.25rem;
+
+                }
+            }
+        }
+    }
+
+    .doc-card:hover {
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    }
+
+    /* Service Page */
+    .services-container {
+        padding: 4rem 0;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+
+        .service-card-parent {
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            width: 30%;
+            border-radius: 8px;
+            box-shadow: var(--single-shadow);
+
+            & h2 {
+                font-family: var(--wide);
+            }
+
+            & p {
+                color: var(--black-light);
+            }
+
+            .icons {
+                display: flex;
+                justify-content: space-between;
+
+                .arrow {
+                    cursor: pointer;
+                    color: var(--black);
+                    font-size: 1.25rem;
+
+                    & i {
+                        transition: var(--transition-normal);
+                        border-radius: 50%;
+                        padding: 0.5rem;
+                    }
+
+                    :hover {
+                        color: var(--white);
+                        background-color: var(--yellow);
+                    }
+                }
+
+                & div {
+                    width: 1rem;
+                    height: 1rem;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    padding: 1rem;
+                }
+            }
+        }
+    }
+
+    /* Profile Card */
+    .profile-container {
+        padding: 5rem 1rem;
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+
+        .profile-left {
+            width: 25%;
+            display: flex;
+            flex-direction: column;
+            /* justify-content: center; */
+            gap: 2rem;
+            align-items: center;
+
+            .profile-image {
+                width: 220px;
+                height: 220px;
+                border-radius: 50%;
+                border: 1px solid var(--white);
+                object-fit: contain;
+                overflow: hidden;
+
+                & img {
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+
+            .logout-btn {
+                & button {
+                    padding: 12px 20px;
+                    font-size: 16px;
+                    background-color: var(--red);
+                    color: var(--white);
+                    border: none;
+                    border-radius: 4px;
+                    font-weight: bold;
+                    cursor: pointer;
+                }
+            }
+        }
+
+        .profile-right {
+            width: 70%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            .data-container {
+                background-color: var(--white);
+                box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.19);
+                border-radius: 4px;
+                display: flex;
+                align-items: baseline;
+                gap: 1rem;
+                padding: 0.5rem 1rem;
+
+                & label {
+                    font-size: 1.5rem;
+                    font-weight: 600;
+                }
+
+                & p {
+                    font-size: 1.1rem;
+                    font-weight: 500;
+                    font-family: var(--wide);
+                }
+            }
+        }
+    }
+}
+
+/* Media Query 1000px */
+@media only screen and (max-width:1000px) {
+
+    /* Register Page */
+    .app-parent {
+        .register-parent {
+            flex-direction: column-reverse;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem 10rem;
+            gap: 2rem;
+
+            .register-left {
+                width: 100%;
+
+                & img {
+                    width: 100%;
+                }
+            }
+
+            .register-right {
+                width: 100%;
+                padding: 1rem;
+
+            }
+        }
+
+        /* Doctor Card */
+        .doc-card {
+            width: 30%;
+        }
+
+        .doctor-search-container {
+            & input {
+                width: 60%;
+            }
+        }
+
+        /* Service Page */
+        .services-container {
+            padding: 2rem 0;
+
+            .service-card-parent {
+                padding: 2rem;
+                width: 45%;
+            }
+        }
+
+        .home-container {
+            flex-direction: column;
+            padding: 4rem 2rem;
+            gap: 0rem;
+
+            .home-left {
+                width: 100%;
+                align-items: center;
+                gap: 2rem;
+                display: flex;
+                border-radius: 2rem 0 2rem 0;
+
+                & h1 {
+                    font-size: 2.5rem;
+                    font-family: var(--wide);
+                    font-weight: 600;
+                    text-align: center;
+                }
+
+                & p {
+                    text-align: center;
+                }
+
+                .stats {
+                    gap: 2rem;
+
+                    .stat {
+                        align-items: center;
+                        scale: 1;
+                    }
+                }
+            }
+
+            .home-right {
+                /* width: 75%; */
+                width: 100%;
+            }
+
+        }
+    }
+}
+
+/* Media Query 800px */
+@media only screen and (max-width:800px) {
+    .app-parent {
+
+        /* Shimmer  */
+        .shimmer-mobile {
+            display: block;
+        }
+
+        .shimmer-laptop {
+            display: none;
+        }
+
+        /* Navbar */
+        .navbar-parent {
+            padding: 1rem 10px;
+
+            .nav-center {
+                /* display: none; */
+                flex-direction: column;
+                position: absolute;
+                width: 100%;
+                left: -100%;
+                opacity: 0;
+                height: 90%;
+                transition: var(--normal);
+                z-index: 100;
+                background-color: var(--white);
+            }
+
+            .nav-center.active {
+                opacity: 1;
+                left: 0;
+            }
+
+            .nav-right {
+                .hamburger-icon {
+                    display: block;
+                    font-size: 1.5rem;
+                }
+            }
+        }
+
+        /* Footer */
+        .footer {
+            flex-direction: column-reverse;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+
+
+            .footer-left {
+                width: 100%;
+                align-items: center;
+                flex-direction: column;
+
+
+                .footer-copyright {
+                    font-size: 0.75rem;
+                }
+
+            }
+
+            .footer-right {
+                width: 100%;
+                justify-content: center;
+                gap: 3rem;
+
+                .quick-links {
+                    flex-direction: column;
+                    gap: 1rem;
+                }
+            }
+        }
+
+        /* Login Page */
+        .login-parent {
+            .login-form {
+                width: 90%;
+            }
+        }
+
+        /* Register Page */
+        .register-parent {
+            padding: 3rem;
+
+            .register-right {
+                padding: 0rem;
+            }
+        }
+
+
+
+        /* Contact Page */
+        .contact-container {
+            padding: 5rem 0;
+
+            .contact-form {
+                flex-direction: column;
+                height: 330px;
+                gap: 20px;
+
+                .form-left {
+                    height: 50%;
+                    gap: 20px;
+
+                    & input {
+                        padding: 10px;
+                        width: 275px;
+                    }
+                }
+
+                .form-right {
+                    height: 50%;
+                    gap: 20px;
+
+                    & textarea {
+                        padding: 10px;
+                        width: 275px
+                    }
+
+                    .form-btn {
+                        font-size: 16px;
+                    }
+                }
+            }
+        }
+
+        /* Doctor Card */
+        .doc-card {
+            width: 45%;
+        }
+
+        .doctor-search-container {
+            & input {
+                width: 100%;
+            }
+        }
+
+        /* Service Page */
+        .services-container {
+            padding: 2rem 0;
+
+            .service-card-parent {
+                padding: 2rem;
+                width: 90%;
+            }
+        }
+
+        /* Profile Page */
+        .profile-container {
+            flex-direction: column;
+            align-items: center;
+            padding: 2rem 1rem;
+
+            .profile-right {
+                width: 100%;
+                justify-content: center;
+                gap: 1rem;
+
+                .data-container {
+                    flex-wrap: wrap;
+                    padding: 1rem 10px;
+                    gap: 10px;
+
+                    & label {
+                        font-size: 1rem;
+                    }
+
+                    & p {
+                        font-size: 1rem;
+                    }
+                }
+            }
+        }
+
+    }
+}
+
+/* Media Query 520px */
+@media only screen and (max-width:520px) {
+    .app-parent {
+
+        /* Login Page */
+        .login-parent {
+            padding: 2.5rem 1rem;
+
+            .login-form {
+                padding: 1.5rem;
+                width: 100%;
+                gap: 1.5rem;
+
+                & h1 {
+                    font-size: 1.25rem;
+                }
+            }
+        }
+
+        /* Register Page */
+        .register-parent {
+            padding: 1rem;
+
+            .register-right {
+                padding: 0rem;
+
+                & h1 {
+                    font-size: 1.5rem;
+                }
+            }
+        }
+
+        /* About Page */
+        .about-parent {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            padding: 2rem 0;
+
+            .about-container {
+                padding: 1rem;
+
+                & h1 {
+                    font-size: 1.5rem;
+                }
+            }
+        }
+
+        /* Doctor Card */
+        .doctors-container {
+            gap: 30px;
+            padding: 5rem 0;
+        }
+
+        .doc-card {
+            width: 90%;
+        }
+
+        .doctor-search-container {
+            padding: 3rem 1rem 0rem 1rem;
+        }
+
+        /* Service Page */
+        .services-container {
+            padding: 2rem 0;
+
+        }
+
+        .home-container {
+            padding: 1rem 1rem;
+
+            .home-left {
+                & h1 {
+                    font-size: 2rem;
+                }
+            }
+
+            .home-right {
+                /* display: none; */
+                width: 100%;
+            }
+        }
+
+    }
+}
