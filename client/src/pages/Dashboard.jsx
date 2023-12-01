@@ -3,24 +3,67 @@ import React, { useEffect, useState } from "react";
 import { backendLink } from "..";
 import { CompactTable } from "@table-library/react-table-library/compact";
 
-const COLUMNSPATIENTS = [
-  { label: "Therapist", renderCell: (item) => item.docname },
-  { label: "Specality", renderCell: (item) => item.specality },
-  { label: "Hospital", renderCell: (item) => item.hospital },
-  { label: "City", renderCell: (item) => item.city },
-  { label: "Subscribed for", renderCell: (item) => item.month },
-  { label: "Purchased on", renderCell: (item) => item.date },
-];
-const COLUMNSDOCTOR = [
-  { label: "Patient", renderCell: (item) => item.patientname },
-  { label: "Subscribed for", renderCell: (item) => item.month },
-  { label: "Purchased on", renderCell: (item) => item.date },
-];
+import { Button, Modal } from "react-bootstrap";
+import Chat from "../components/Chat/Chat";
+
 const Dashboard = () => {
   const role = JSON.parse(localStorage.getItem("user")).role;
   const [nodes, setData] = useState();
+  const [show, setShow] = useState(false);
+
+  const toggleShow = () => {
+    setShow(!show);
+  };
+  const [roomId, setRoomId] = useState();
+  const [name, setName] = useState();
+  const handleJoin = (item) => {
+    const role = JSON.parse(localStorage.getItem("user")).role;
+    if (role === "patient") setName(item.patientname);
+    else setName(item.docname);
+    setRoomId(item._id);
+    setShow(true);
+  };
+  const COLUMNSPATIENTS = [
+    { label: "Therapist", renderCell: (item) => item.docname },
+    { label: "Specality", renderCell: (item) => item.specality },
+    { label: "Hospital", renderCell: (item) => item.hospital },
+    { label: "City", renderCell: (item) => item.city },
+    { label: "Subscribed for", renderCell: (item) => item.month },
+    {
+      label: "Chat",
+      renderCell: (item) => {
+        return (
+          <Button
+            onClick={() => {
+              handleJoin(item);
+            }}
+          >
+            Chat with {item.docname}
+          </Button>
+        );
+      },
+    },
+  ];
+  const COLUMNSDOCTOR = [
+    { label: "Patient", renderCell: (item) => item.patientname },
+    { label: "Subscribed for", renderCell: (item) => item.month },
+    { label: "Purchased on", renderCell: (item) => item.date },
+    {
+      label: "Chat",
+      renderCell: (item) => {
+        return (
+          <Button
+            onClick={() => {
+              handleJoin(item);
+            }}
+          >
+            Chat with {item.patientname}
+          </Button>
+        );
+      },
+    },
+  ];
   useEffect(() => {
-    console.log(localStorage.getItem("user"));
     const id = JSON.parse(localStorage.getItem("user")).userId;
     const data =
       JSON.parse(localStorage.getItem("user")).role === "doctor"
@@ -31,11 +74,11 @@ const Dashboard = () => {
         `${backendLink}/api/doctor/getBooking`,
         data
       );
-      await setData(response.data.response);
-      //console.log(response.data.response);
+      setData(response.data.response);
     })();
   }, []);
   const data2 = { nodes };
+  console.log(nodes);
   if (!nodes) return <>Loading</>;
   return (
     <>
@@ -46,6 +89,22 @@ const Dashboard = () => {
           <CompactTable columns={COLUMNSDOCTOR} data={data2} />
         )}
       </div>
+      <Modal show={show} onHide={toggleShow}>
+        <Modal.Header closeButton>
+          <Modal.Title>Chat</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <Chat roomId={roomId} name={name} />
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={toggleShow}>
+            Close
+          </Button>
+          <Button variant="primary" onClick={handleJoin}>
+            Save Changes
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </>
   );
 };
