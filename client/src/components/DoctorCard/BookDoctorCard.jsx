@@ -43,12 +43,20 @@ const BookDoctorCard = (props) => {
                 <p>{props.doc.speciality}</p>
               </div> */}
         <Row>
-          <Col xs="auto" className="name-title">
+          <Col xs="8" className="name-title">
             <h1>{props.doc.name}</h1>
             <p>{props.doc.speciality}</p>
           </Col>
-          <Col>
-            <Button onClick={handleDoctorBooking} xs={"auto"}>
+          <Col xs="4">
+            <Button
+              style={{
+                backgroundColor: "yellow",
+                color: "black",
+                borderColor: "yellow",
+              }}
+              onClick={handleDoctorBooking}
+              xs={"auto"}
+            >
               Book
             </Button>
           </Col>
@@ -62,9 +70,9 @@ const BookDoctorCard = (props) => {
           </div>
           <div className="rating">
             <div className="rating-logo">
-              <i className="fa-solid fa-star"></i>
+              <i className="fa fa-venus-mars"></i>
             </div>
-            <p>{props.doc.rating}</p>
+            <p>{props.doc.gender}</p>
           </div>
         </div>
         <div className="location">
@@ -127,7 +135,14 @@ const BookDoctorCard = (props) => {
           <Button variant="secondary" onClick={handleClose}>
             Close
           </Button>
-          <Button variant="primary" onClick={handleBook}>
+          <Button
+            style={{
+              backgroundColor: "yellow",
+              color: "black",
+              borderColor: "yellow",
+            }}
+            onClick={handleBook}
+          >
             Book
           </Button>
         </Modal.Footer>

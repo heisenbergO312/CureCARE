@@ -49,7 +49,6 @@ const getDocData = async (req, res) => {
 //GET
 const getDocDataWithEm = async (req, res) => {
   const { id } = req.params;
-  console.log(id);
   try {
     const docdata = await Doctor.findOne({ email: id });
     if (!docdata) {

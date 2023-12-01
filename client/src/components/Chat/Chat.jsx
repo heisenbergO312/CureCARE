@@ -1,20 +1,19 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { Col, FloatingLabel, Form, Row, Stack } from "react-bootstrap";
 import { io } from "socket.io-client";
+import { backendLink } from "../..";
 
 const Chat = (props) => {
-  const host = "http://localhost:4000";
-  const socket = io.connect(host);
+  const socket = io.connect(`${backendLink}`);
   const [message, setMessage] = useState("");
   const [data, setData] = useState("");
-  //const [data, setdata] = useState([]);
   const [allMsg, setAllMsg] = useState([]);
   const handleMsg = (e) => {
     setMessage(e.target.value);
   };
 
   const addMsg = (payload) => {
-    setAllMsg(allMsg.concat(payload));
+    if (payload !== "") setAllMsg(allMsg.concat(payload));
   };
   useMemo(() => addMsg(data), [data]);
   useEffect(() => {
@@ -29,24 +28,20 @@ const Chat = (props) => {
     socket.emit("msg", { msg: message, user: props.name }, props.roomId);
     setMessage("");
   };
-  console.log(data);
   return (
     <>
-      <Stack>
+      <Stack style={{ backgroundColor: "#213555" }}>
         {allMsg.map((value, index) => {
-          //   if (JSON.stringify(value) !== JSON.stringify(oldValue)) {
-          //     oldValue = value;
           return (
             <div>
               <p key={index}>
-                <span style={{ color: "black", paddingRight: "1rem" }}>
+                <span style={{ color: "white", paddingRight: "1rem" }}>
                   {value.user}
                 </span>
-                <span style={{ color: "#0E2954" }}>{value.msg}</span>
+                <span style={{ color: "white" }}>{value.msg}</span>
               </p>
             </div>
           );
-          // }
         })}
       </Stack>
       <Row style={{ alignItems: "center", padding: "1rem 0rem 0 1rem" }}>
@@ -72,7 +67,6 @@ const Chat = (props) => {
           </FloatingLabel>
         </Col>
         <Col xs="auto">
-          {/* <button onClick=  {sendMsg}>Send</button> */}
           <button
             type="button"
             style={{ borderColor: "#213555", color: "black" }}

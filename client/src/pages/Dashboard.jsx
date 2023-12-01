@@ -28,12 +28,17 @@ const Dashboard = () => {
     { label: "Specality", renderCell: (item) => item.specality },
     { label: "Hospital", renderCell: (item) => item.hospital },
     { label: "City", renderCell: (item) => item.city },
-    { label: "Subscribed for", renderCell: (item) => item.month },
+    { label: "Subscribed for", renderCell: (item) => `${item.month} months` },
     {
       label: "Chat",
       renderCell: (item) => {
         return (
           <Button
+            style={{
+              backgroundColor: "yellow",
+              color: "black",
+              borderColor: "yellow",
+            }}
             onClick={() => {
               handleJoin(item);
             }}
@@ -46,13 +51,18 @@ const Dashboard = () => {
   ];
   const COLUMNSDOCTOR = [
     { label: "Patient", renderCell: (item) => item.patientname },
-    { label: "Subscribed for", renderCell: (item) => item.month },
+    { label: "Subscribed for", renderCell: (item) => `${item.month} months` },
     { label: "Purchased on", renderCell: (item) => item.date },
     {
       label: "Chat",
       renderCell: (item) => {
         return (
           <Button
+            style={{
+              backgroundColor: "yellow",
+              color: "black",
+              borderColor: "yellow",
+            }}
             onClick={() => {
               handleJoin(item);
             }}
@@ -96,14 +106,6 @@ const Dashboard = () => {
         <Modal.Body>
           <Chat roomId={roomId} name={name} />
         </Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={toggleShow}>
-            Close
-          </Button>
-          <Button variant="primary" onClick={handleJoin}>
-            Save Changes
-          </Button>
-        </Modal.Footer>
       </Modal>
     </>
   );

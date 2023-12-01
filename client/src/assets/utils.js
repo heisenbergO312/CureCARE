@@ -1,7 +1,7 @@
-export const INSTAGRAM = "https://www.instagram.com/storyofayushman/";
-export const LINKEDIN = "https://www.linkedin.com/in/ayushmangarg/";
-export const TWITTER = "https://twitter.com/AyushmanGarg4";
-export const GITHUB = "https://github.com/ayushmangarg2003";
+export const INSTAGRAM = "";
+export const LINKEDIN = "";
+export const TWITTER = "";
+export const GITHUB = "";
 
 export const COMPANY_NAME_1="Mind";
 export const COMPANY_NAME_2="HARBOR";
