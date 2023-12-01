@@ -3,8 +3,10 @@ import { useAuthContext } from "./useAuthContext";
 import { backendLink } from "..";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { useAlert } from "react-alert";
 
 export const useRegister = () => {
+  const alert = useAlert();
   const [error, setError] = useState("");
   const { dispatch } = useAuthContext();
   const navigate = useNavigate();
@@ -37,31 +39,13 @@ export const useRegister = () => {
       let response;
       if (role === "doctor") {
         response = await axios.post(`${backendLink}/api/doctor/register`, user);
+        alert.show("Success, wait for verification", { type: "success" });
       } else {
         response = await axios.post(`${backendLink}/api/auth/register`, user);
+        alert.show("Success", { type: "success" });
       }
       navigate("/");
-      console.log(response.data.doc._id);
-      localStorage.clear();
-      localStorage.setItem(
-        "user",
-        JSON.stringify({
-          userId: response.data.user
-            ? response.data.user._id
-            : response.data.doc._id,
-          name,
-          email,
-          password,
-          gender,
-          speciality,
-          hospital,
-          city,
-          role,
-          img,
-          patients,
-        })
-      );
-      dispatch({ type: "LOGIN", payload: { name, email, role, gender } });
+      return response;
     } catch (error) {
       setError(error.response.data.error);
     }

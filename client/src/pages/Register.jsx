@@ -21,7 +21,7 @@ const Register = () => {
 
   const handelSubmit = async (e) => {
     e.preventDefault();
-    await register(
+    const response = await register(
       name,
       email,
       password,

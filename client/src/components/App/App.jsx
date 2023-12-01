@@ -15,13 +15,12 @@ import Booking from "../../pages/Booking";
 import { transitions, positions, Provider as AlertProvider } from "react-alert";
 import AlertTemplate from "react-alert-template-basic";
 import Dashboard from "../../pages/Dashboard";
+import Blogs from "../../pages/Blogs";
 
 const options = {
-  // you can also just use 'bottom center'
   position: positions.BOTTOM_CENTER,
   timeout: 5000,
   offset: "30px",
-  // you can also just use 'scale'
   transition: transitions.SCALE,
 };
 
@@ -44,6 +43,7 @@ const App = () => {
               <Route path="/contact" element={<Contact />} />
               <Route path="/booking" element={<Booking />} />
               <Route path="/dashboard" element={<Dashboard />} />
+              <Route path="/blog" element={<Blogs />} />
             </Routes>
           </div>
           <Footer />

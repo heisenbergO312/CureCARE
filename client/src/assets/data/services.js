@@ -5,6 +5,7 @@ export const services = [
     desc: "Best care for mental health patients. Our health System offers unmatched, expert health care. On your door steps",
     bgColor: "rgba(254, 182, 13, .2)",
     textColor: "#FEB60D",
+    url: '/booking'
   },
   {
     id:2,
@@ -12,6 +13,7 @@ export const services = [
     desc: "AI-powered chatbot designed to respond to your mental health-related inquiries. Available 24*7 for you.",
     bgColor: "rgba(254, 182, 13, .2)",
     textColor: "#FEB60D",
+    url: 'https://mentalharbor-minor.streamlit.app/'
   },
   {
     id:3,
@@ -19,6 +21,7 @@ export const services = [
     desc: "A comprehensive library of blogs on mental health authored by qualified professionals updated regularly.",
     bgColor: "rgba(254, 182, 13, .2)",
     textColor: "#FEB60D",
+    url:'/blog'
   },
   // {
   //   id:2,

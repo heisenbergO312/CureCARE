@@ -14,7 +14,6 @@ const Doctors = () => {
     try {
       axios.get(`${backendLink}/api/doctor/doctorData`).then((res) => {
         setDoc(res.data);
-        console.log("ca");
         setLoading(false);
       });
     } catch (error) {
@@ -24,6 +23,7 @@ const Doctors = () => {
 
   let filtered = [];
   for (let i = 0; i < doc.length; i++) {
+    if (!doc[i].verified) continue;
     if (
       doc[i].name.toLowerCase().includes(search.toLowerCase()) ||
       doc[i].speciality.toLowerCase().includes(search.toLowerCase()) ||

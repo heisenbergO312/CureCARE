@@ -11,6 +11,7 @@ const doctorSchema = new mongoose.Schema({
   hospital: { type: String, required: true },
   city: { type: String, required: true },
   gender: { type: String, required: true },
+  verified: { type: Boolean, default: false },
 });
 
 doctorSchema.statics.register = async function (
@@ -43,7 +44,7 @@ doctorSchema.statics.register = async function (
     patients: patients,
     hospital: hospital,
     city: city,
-    gender:gender,
+    gender: gender,
   });
 
   return doctor;
@@ -58,6 +59,9 @@ doctorSchema.statics.login = async function (email, password) {
   const user = await this.findOne({ email });
   if (!user) {
     throw Error("Doctor does not exist");
+  }
+  if(!user.verified){
+    throw Error("Doctor is not verified");
   }
   const match = await bcrypt.compare(password, user.password);
 

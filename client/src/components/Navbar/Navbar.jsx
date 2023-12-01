@@ -36,6 +36,11 @@ const Navbar = () => {
           </Link>
         </div>
         <div className="navlink" onClick={handleClick}>
+          <Link className="navlink-link" to={"/blog"}>
+            Blogs
+          </Link>
+        </div>
+        <div className="navlink" onClick={handleClick}>
           <Link className="navlink-link" to={"/doctors"}>
             Doctors
           </Link>
@@ -49,6 +54,13 @@ const Navbar = () => {
             </div>
           </>
         )}
+        {user && (
+          <div className="navlink" onClick={handleClick}>
+            <Link className="navlink-link" to={"/dashboard"}>
+              Dashboard
+            </Link>
+          </div>
+        )}
         <div className="navlink" onClick={handleClick}>
           <Link className="navlink-link" to={"/about"}>
             About
@@ -59,13 +71,6 @@ const Navbar = () => {
             Contact
           </Link>
         </div>
-        {user && (
-          <div className="navlink" onClick={handleClick}>
-            <Link className="navlink-link" to={"/dashboard"}>
-              Dashboard
-            </Link>
-          </div>
-        )}
       </div>
 
       <div className="nav-right">

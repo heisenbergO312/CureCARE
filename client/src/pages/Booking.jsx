@@ -1,23 +1,28 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { backendLink } from "..";
 import Shimmer from "../components/Shimmer/Shimmer";
 import BookDoctorCard from "../components/DoctorCard/BookDoctorCard";
-import { Button, Modal } from "react-bootstrap";
 
 const Booking = () => {
   let navigator = useNavigate();
   const [loading, setLoading] = useState(true);
+  const [verifiedData, setVerifiedData] = useState([]);
 
-  const [doc, setDoc] = useState();
   useEffect(() => {
     if (!localStorage.getItem("user")) navigator("/login");
-    axios.get(`${backendLink}/api/doctor/doctorData`).then((res) => {
-      setDoc(res.data);
+    (async function () {
+      const res = await axios.get(`${backendLink}/api/doctor/doctorData`);
+      let filtered = [];
+      for (let i = 0; i < res.data.length; i++) {
+        if (!res.data[i].verified) continue;
+        filtered = [...filtered, res.data[i]];
+      }
+      setVerifiedData(filtered);
       setLoading(false);
-    });
-  }, []);
+    })();
+  }, [navigator]);
 
   return (
     <>
@@ -25,7 +30,7 @@ const Booking = () => {
         <Shimmer />
       ) : (
         <div className="doctors-container">
-          {doc.map((item) => (
+          {verifiedData.map((item) => (
             <BookDoctorCard key={item._id} doc={item} />
           ))}
         </div>

@@ -92,7 +92,9 @@ const Dashboard = () => {
   if (!nodes) return <>Loading</>;
   return (
     <>
-      <div className="m-5">
+
+      <div className="services-parent ms-5 me-5">
+      <div className="section-heading mb-5">DASHBOARD</div>
         {role === "patient" ? (
           <CompactTable columns={COLUMNSPATIENTS} data={data2} />
         ) : (
