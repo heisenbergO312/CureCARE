@@ -1,2 +1,2 @@
 ## MindHarbor
-One stop solution for mental health
+One stop solution for all mental health issues 
