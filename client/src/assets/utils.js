@@ -3,8 +3,8 @@ export const LINKEDIN = "";
 export const TWITTER = "";
 export const GITHUB = "";
 
-export const COMPANY_NAME_1 = "Mind";
-export const COMPANY_NAME_2 = "HARBOR";
+export const COMPANY_NAME_1 = "Cure";
+export const COMPANY_NAME_2 = "CARE";
 export const COPYRIGHT = "Copyright @ All Rights Reserved";
 export const MISSION =
   "Our mission is to foster mental well-being by providing accessible, compassionate, and personalized mental health services. We strive to create a supportive online environment that empowers individuals to overcome challenges, seek guidance, and build resilience. Through a range of professional resources and innovative tools, we aim to break down barriers, reduce stigma, and enhance the overall mental health of our community.";

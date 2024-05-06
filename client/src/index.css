@@ -7,15 +7,15 @@
 
 /* Variables */
 :root {
-  --yellow: rgb(255, 228, 75);
+  --yellow: rgb(255, 75, 153);
   --wide: "Montserrat", sans-serif;
   --normal: "Roboto", sans-serif;
   --black: #151515;
   --black-light: #454545;
   --white: #fff;
   --red: red;
-  --green: rgb(78, 134, 77);
-  --blue: rgb(0, 60, 255);
+  --green: rgb(123, 134, 77);
+  --blue: rgb(0, 255, 166);
   --single-shadow: 5px 5px 10px rgba(0, 0, 0, 0.19);
   --double-shadow: 5px 5px 10px rgba(0, 0, 0, 0.19),
     -5px -5px 10px rgba(0, 0, 0, 0.19);
